@@ -23,7 +23,9 @@ class DB
 {
     private PDO $pdo;
 
-    private string $charset = 'utf8';
+
+//    private string $charset = 'utf8';
+    private string $charset = 'utf8mb4';
 //    private string $charset = 'utf8_general_ci';
 
 //    private Connection $connection;
