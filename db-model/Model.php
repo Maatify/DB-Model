@@ -1,18 +1,30 @@
 <?php
 /**
- * @copyright ©2023 Maatify.dev
- * @author    Mohamed Abdulalim (megyptm) <mohamed@maatify.dev>
- * @since     2023-05-21 4:17 PM
- * @link      https://www.maatify.dev Maatify.com
- * @link      https://github.com/Maatify/DB-Model  view project on GitHub
- * @Project   DB-Model
+ * @copyright   ©2023 Maatify.dev
+ * @Liberary    DB-Model
+ * @Project     DB-Model
+ * @author      Mohamed Abdulalim (megyptm) <mohamed@maatify.dev>
+ * @since       2023-05-21 4:17 PM
+ * @see         https://www.maatify.dev Maatify.com
+ * @link        https://github.com/Maatify/DB-Model  view project on GitHub
+ * @link        https://github.com/Maatify/Logger (maatify/logger)
+ * @link        https://github.com/Maatify/Json (maatify/json)
+ * @link        https://github.com/Maatify/PostValidator (maatify/post-validator)
+ * @copyright   ©2023 Maatify.dev
+ * @note        This Project using for MYSQL PDO (PDO_MYSQL).
+ * @note        This Project extends other libraries maatify/logger, maatify/json, maatify/post-validator.
+ *
+ * @note        This program is distributed in the hope that it will be useful - WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE.
+ *
  */
 
 namespace Maatify\Model;
 
 use Maatify\Json\Json;
 use Maatify\PostValidator\PostValidator;
-
+use PDOException;
 abstract class Model extends PDOBuilder
 {
 
@@ -102,7 +114,7 @@ abstract class Model extends PDOBuilder
         ];
     }
 
-    protected function JsonHandlerWithOther(array $data, array $other = [])
+    protected function JsonHandlerWithOther(array $data, array $other = []): void
     {
         Json::Success(
             [
@@ -171,7 +183,7 @@ abstract class Model extends PDOBuilder
     {
         try {
             return $this->FetchRow($this->PrepareSelect($tableName, $columns, $where, $wheresVal));
-        } catch (\PDOException $e) {
+        } catch (PDOException $e) {
             return $this->LogError($e, 'Row '. $tableName .' where '.$where . ' ' . $columns, __LINE__, $wheresVal);
         }
     }
@@ -180,7 +192,7 @@ abstract class Model extends PDOBuilder
     {
         try {
             return $this->Row($this->tableName, $columns, $where, $wheresVal);
-        } catch (\PDOException $e) {
+        } catch (PDOException $e) {
             return $this->LogError($e, 'RowThisTable '.$this->tableName.' where '.$where, __LINE__, $wheresVal);
         }
     }
@@ -189,7 +201,7 @@ abstract class Model extends PDOBuilder
     {
         try {
             return (string) $this->Col($this->tableName, $columns, $where, $wheresVal);
-        } catch (\PDOException $e) {
+        } catch (PDOException $e) {
             $this->LogError($e, 'ColThisTable '.$this->tableName.' where '.$where, __LINE__, $wheresVal);
             return '';
         }
@@ -199,7 +211,7 @@ abstract class Model extends PDOBuilder
     {
         try {
             return (string) $this->FetchCol($this->PrepareSelect($tableName, $columns, $where, $wheresVal));
-        } catch (\PDOException $e) {
+        } catch (PDOException $e) {
             $this->LogError($e, 'Col '.$this->tableName.' where '.$where, __LINE__, $wheresVal);
             return '';
         }
@@ -209,7 +221,7 @@ abstract class Model extends PDOBuilder
     {
         try {
             return $this->Rows($this->tableName, $columns, $where, $wheresVal);
-        } catch (\PDOException $e) {
+        } catch (PDOException $e) {
             return $this->LogError($e, 'RowsThisTable '.$this->tableName.' where '.$where, __LINE__, $wheresVal);
         }
     }
@@ -218,7 +230,7 @@ abstract class Model extends PDOBuilder
     {
         try {
             return $this->FetchRows($this->PrepareSelect($tableName, $columns, $where, $wheresVal));
-        } catch (\PDOException $e) {
+        } catch (PDOException $e) {
             return $this->LogError($e, 'Rows '.$this->tableName.' where '.$where . PHP_EOL, __LINE__, $wheresVal);
         }
     }
