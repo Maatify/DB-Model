@@ -1,9 +1,11 @@
 <?php
 /**
- * Created by Maatify.dev
- * User: Maatify.dev
- * Date: 2023-03-21
- * Time: 10:02 AM
+ * @copyright ©2023 Maatify.dev
+ * @author    Mohamed Abdulalim (megyptm) <mohamed@maatify.dev>
+ * @since     2023-05-21 4:17 PM
+ * @link      https://www.maatify.dev Maatify.com
+ * @link      https://github.com/Maatify/DB-Model  view project on GitHub
+ * @Project   DB-Model
  */
 
 namespace Maatify\Model;

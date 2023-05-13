@@ -1,7 +1,7 @@
 {
   "name": "maatify/db-model",
   "description": "Official PHP library for maatify.dev MySql Database Model handler, known by our team",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "type": "library",
   "keywords": [
     "PHP",
