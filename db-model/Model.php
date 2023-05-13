@@ -152,7 +152,9 @@ abstract class Model extends PDOBuilder
         IFNULL(`$tb_requirement`.`q_en`,0) as q_en,
     */
         foreach ($this->cols as $col => $type){
-            $query .= "IFNULL(`$this->tableName`.`$col`," . ($this->ColJoinTypeToString($type) === '' ? "''" : $this->ColJoinTypeToString($type)) . ") as $this->tableAlias" . '_' . $col . ', ';
+            if($col != 'id'){
+                $query .= "IFNULL(`$this->tableName`.`$col`," . ($this->ColJoinTypeToString($type) === '' ? "''" : $this->ColJoinTypeToString($type)) . ") as $this->tableAlias" . '_' . $col . ', ';
+            }
         }
         return rtrim($query, ', ');
 
