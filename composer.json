@@ -1,0 +1,59 @@
+{
+  "name": "maatify/db-model",
+  "description": "Official PHP library for maatify.dev MySql Database Model handler, known by our team",
+  "version": "1.0.0",
+  "type": "library",
+  "keywords": [
+    "PHP",
+    "MySql",
+    "Database",
+    "PDO",
+    "Model",
+    "Handler"
+  ],
+  "homepage": "https://github.com/Maatify/",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Mohamed Abdulalim",
+      "email": "mohamed@maatify.dev",
+      "homepage": "https://www.maatify.com/",
+      "role": "Backend Developer"
+    },
+    {
+      "name": "Ahmed Fawzy",
+      "email": "a.fawzy@maatify.dev",
+      "homepage": "https://www.maatify.com/",
+      "role": "Frontend Developer"
+    },
+    {
+      "name": "Ahmed Abdullah",
+      "email": "a.abdullah@maatify.dev",
+      "homepage": "https://www.maatify.com/",
+      "role": "Android Developer"
+    },
+    {
+      "name": "Elmokhtar Ahmed",
+      "email": "mokhtar@maatify.dev",
+      "homepage": "https://www.maatify.com/",
+      "role": "IOS Developer"
+    }
+  ],
+  "config": {
+    "platform": {
+      "php": "8.0.0"
+    }
+  },
+  "require": {
+    "php": ">=8.0",
+    "ext-pdo": "*",
+    "maatify/logger": "^1.0",
+    "maatify/json": "^1.0",
+    "maatify/post-validator": "^1.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Maatify\\Model\\": "db-model/"
+    }
+  }
+}
