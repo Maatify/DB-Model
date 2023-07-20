@@ -36,11 +36,7 @@ use PDOException;
 class DB
 {
     private PDO $pdo;
-
-//    protected string $charset = 'utf8';
-    protected string $charset = 'utf8mb4';
-//    protected string $charset = 'utf8_general_ci';
-
+    protected string $charset = 'utf8mb4'; // 'utf8', 'utf8_general_ci'
     public function __construct(array $config = [])
     {
         $defaultOptions = [
