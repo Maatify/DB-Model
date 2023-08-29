@@ -5,7 +5,7 @@ maatify.dev MySql Database PDO Model handler, known by our team
 # Installation
 
 ```shell
-composer require maatify/telegram-bot
+composer require maatify/db-model
 ```
 
 # Usage
